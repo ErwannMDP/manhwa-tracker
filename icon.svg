@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="28%" r="85%">
+      <stop offset="0" stop-color="#5b23a8"/>
+      <stop offset=".55" stop-color="#2a1250"/>
+      <stop offset="1" stop-color="#120c22"/>
+    </radialGradient>
+    <linearGradient id="pageL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d9c7ff"/>
+    </linearGradient>
+    <linearGradient id="pageR" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3ecff"/>
+      <stop offset="1" stop-color="#bfa2f7"/>
+    </linearGradient>
+    <linearGradient id="rib" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe07a"/>
+      <stop offset="1" stop-color="#ffb21f"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="28" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <!-- action speed lines -->
+  <g stroke="#b07af5" stroke-linecap="round" opacity=".18">
+    <line x1="80" y1="760" x2="330" y2="250" stroke-width="10"/>
+    <line x1="150" y1="860" x2="420" y2="300" stroke-width="6"/>
+    <line x1="940" y1="770" x2="700" y2="260" stroke-width="10"/>
+    <line x1="870" y1="880" x2="610" y2="320" stroke-width="6"/>
+  </g>
+  <!-- glow under book -->
+  <ellipse cx="512" cy="700" rx="330" ry="120" fill="#913fe2" opacity=".55" filter="url(#soft)"/>
+  <!-- open book: two angled pages forming an M silhouette -->
+  <path d="M512 380 L512 790 L210 700 L210 290 Z" fill="url(#pageL)"/>
+  <path d="M512 380 L512 790 L814 700 L814 290 Z" fill="url(#pageR)"/>
+  <!-- comic panels on pages -->
+  <g fill="#913fe2" opacity=".85">
+    <path d="M250 345 L470 405 L470 520 L250 462 Z"/>
+    <path d="M250 500 L350 527 L350 640 L250 614 Z"/>
+    <path d="M375 534 L470 560 L470 672 L375 647 Z"/>
+    <path d="M554 405 L774 345 L774 462 L554 520 Z"/>
+    <path d="M554 560 L774 500 L774 614 L554 672 Z"/>
+  </g>
+  <!-- spine -->
+  <path d="M512 380 L512 790" stroke="#2a1250" stroke-width="10" stroke-linecap="round"/>
+  <!-- bookmark ribbon -->
+  <path d="M650 228 L742 228 L742 470 L696 432 L650 470 Z" fill="url(#rib)" stroke="#120c22" stroke-width="10" stroke-linejoin="round"/>
+  <!-- sparkle -->
+  <g filter="url(#glow)" fill="#ffffff">
+    <path d="M300 150 C310 205 325 220 380 230 C325 240 310 255 300 310 C290 255 275 240 220 230 C275 220 290 205 300 150 Z"/>
+  </g>
+  <circle cx="420" cy="170" r="12" fill="#ffffff" opacity=".85"/>
+</svg>
