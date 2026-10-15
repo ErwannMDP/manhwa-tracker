@@ -256,7 +256,12 @@ async function write(id){
 }
 function flash(t){const el=document.querySelector(".save");if(el){el.textContent=t;clearTimeout(flash.t);flash.t=setTimeout(()=>{el.textContent=""},2200);}}
 
-async function initStore(){ loadLocal(); renderAll(); }
+const SEED={"162da743c6": {"at": 1792099716147, "ch": 101, "rs": "reading"}, "492610c5b7": {"at": 1792099671027, "rs": "restart"}, "590a2ef455": {"at": 1792098944096, "ch": 36, "rs": "reading"}, "668f119716": {"at": 1792099404702, "ch": 148, "rs": "reading"}, "869db122ac": {"at": 1792099663969, "rs": "restart"}, "88fdb1f076": {"at": 1792099447150, "ch": 120, "rs": "reading"}, "ecc2457eb3": {"at": 1792099658876, "rs": "restart"}};
+async function initStore(){
+  loadLocal();
+  try{ if(!localStorage.getItem("mt-seed-v1")){ for(const [id,p] of Object.entries(SEED)){ if(!progress[id]) progress[id]=p; } saveLocal(); localStorage.setItem("mt-seed-v1","1"); } }catch(e){ for(const [id,p] of Object.entries(SEED)){ if(!progress[id]) progress[id]=p; } }
+  renderAll();
+}
 function showNote(){}
 
 /* ---------- covers ---------- */
